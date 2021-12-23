@@ -1,20 +1,18 @@
 ﻿using Northwind.Entity.Base;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-#nullable disable
-
-namespace Northwind.Entity.Models
+namespace Northwind.Entity.Dto
 {
-    public partial class Employee:EntityBase
+   public  class DtoEmployees:DtoBase
     {
-        public Employee()
+        public DtoEmployees()
         {
-            EmployeeTerritories = new HashSet<EmployeeTerritory>();
-            InverseReportsToNavigation = new HashSet<Employee>();
-            Orders = new HashSet<Order>();
-        }
 
+        }
         public int EmployeeId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -33,10 +31,5 @@ namespace Northwind.Entity.Models
         public string Notes { get; set; }
         public int? ReportsTo { get; set; }
         public string PhotoPath { get; set; }
-
-        public virtual Employee ReportsToNavigation { get; set; }
-        public virtual ICollection<EmployeeTerritory> EmployeeTerritories { get; set; }
-        public virtual ICollection<Employee> InverseReportsToNavigation { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
     }
 }

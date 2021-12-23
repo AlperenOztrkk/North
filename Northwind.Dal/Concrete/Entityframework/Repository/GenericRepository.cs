@@ -22,10 +22,14 @@ namespace Northwind.Dal.Concrete.Entityframework.Repository
             dbset = this.context.Set<T>();
             this.context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
+
+        public GenericRepository(System.Data.Entity.DbContext contex)
+        {
+        }
         #endregion
 
         #region Methods
-        
+
         public T Add(T entity)
         {
             context.Entry(entity).State = EntityState.Added;
